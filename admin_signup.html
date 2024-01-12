@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Create Account</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/icon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #0c3542;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e4e4e4;
+            border-radius: 2em;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #EBA814;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #E9E9E4;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: cover;
+        }
+
+        .logo-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #f5f3f3;
+            flex-direction: column;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: 10vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            border-radius: 9px;
+            background-color: #E9E9E4;
+        }
+
+        select {
+            border-radius: 9px;
+            height: 40px;
+            background-color: #E9E9E4;
+            width: 90%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-width: 2px;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=number] {
+            width: 90%;
+            padding: 5px;
+            margin-bottom: 10px;
+            height: 40px;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+        }
+
+        ::file-selector-button {
+            display: none;
+        }
+
+        .attach-file {
+            overflow: hidden;
+            background-color: #E9E9E4;
+            color: #0C3542;
+            text-align-last: center;
+            padding-top: 10px;
+        }
+
+        .status {
+            color: #EBA814;
+        }
+
+        .sbmt {
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 3vh;
+        }
+
+        .btn-sbmt {
+            color: #fff;
+            background-color: #EBA814;
+            border: #EBA814;
+            width: 300px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        td,
+        th {
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0C3542;
+            color: white;
+        }
+
+        .yellow-text {
+            color: #EBA814;
+        }
+
+        .white-text-only {
+            display: flex;
+            margin-top: 1vh;
+            justify-content: center;
+            text-align: center;
+        }
+
+        span {
+            color: #EBA814;
+        }
+
+        input[type=checkbox] {
+            margin-right: 5px;
+            margin-top: 0px;
+        }
+
+        .terms {
+            margin: 0;
+        }
+
+
+        @media screen and (max-width: 320px) {
+            body {
+                width: auto;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                font-size: 12px;
+            }
+
+            input[type="file"] {
+                height: 20px;
+                width: 70%;
+                font-size: 6px;
+            }
+
+            .site-wrap {
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+
+            .container {
+                padding-top: 0;
+                margin-top: 0;
+            }
+
+            .btn-sbmt {
+                height: 30px;
+                width: 50%;
+                font-size: 14px;
+            }
+
+            .yellow-text {
+                font-size: 9px;
+            }
+
+            .status {
+                font-size: 8px;
+            }
+
+            h3 {
+                font-size: 9px;
+            }
+
+            th,
+            td {
+                padding: 3px;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+
+            h4 {
+                font-size: 7px;
+            }
+
+            label {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-image">
+            <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png"
+                class="img-fluid">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1><b>Create</b> an account</h1>
+            <form class="col-xs-12" method="POST" action="admin_profile.html">
+                <div class="col-xs-6 col-sm-6">
+                    <label for="fname">First Name:</label> <br>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="lname">Last Name:</label> <br>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="city_hall_id_number">City Hall ID Number:</label> <br>
+                    <input type="text" id="city_hall_id_number" name="city_hall_id_number" required>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="contact_number">Contact Number:</label> <br>
+                    <input type="number" id="contact_number" name="contact_number" placeholder="09123456789" required>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="email">Email:</label> <br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <label for="barangay">Barangay:</label> <br>
+                    <select name="barangay" id="barangay" required>
+                        <option value="">Select Barangay:</option>
+                        <option value="Altura Bata">Altura Bata</option>
+                        <option value="Altura Matanda">Altura Matanda</option>
+                        <option value="Altura-South">Altura-South</option>
+                        <option value="Ambulong">Ambulong</option>
+                        <option value="Bañadero">Bañadero</option>
+                        <option value="Bagbag">Bagbag</option>
+                        <option value="Bagumbayan">Bagumbayan</option>
+                        <option value="Balele">Balele</option>
+                        <option value="Banjo East (Bungkalot)">Banjo East (Bungkalot)</option>
+                        <option value="Banjo West (Banjo Laurel)">Banjo West (Banjo Laurel)</option>
+                        <option value="Bilog-bilog">Bilog-bilog</option>
+                        <option value="Boot">Boot</option>
+                        <option value="Cale">Cale</option>
+                        <option value="Darasa">Darasa</option>
+                        <option value="Gonzales">Gonzales</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Janopol">Janopol</option>
+                        <option value="Janopol Oriental">Janopol Oriental</option>
+                        <option value="Laurel">Laurel</option>
+                        <option value="Luyos">Luyos</option>
+                        <option value="Mabini">Mabini</option>
+                        <option value="Malaking Pulo">Malaking Pulo</option>
+                        <option value="Maria Paz">Maria Paz</option>
+                        <option value="Maugat">Maugat</option>
+                        <option value="Montaña (Ik-ik)">Montaña (Ik-ik)</option>
+                        <option value="Natatas">Natatas</option>
+                        <option value="Pagaspas (Balokbalok)">Pagaspas (Balokbalok)</option>
+                        <option value="Pantay Matanda">Pantay Matanda</option>
+                        <option value="Pantay Bata">Pantay Bata</option>
+                        <option value="Poblacion Barangay 1">Poblacion Barangay 1</option>
+                        <option value="Poblacion Barangay 2">Poblacion Barangay 2</option>
+                        <option value="Poblacion Barangay 3">Poblacion Barangay 3</option>
+                        <option value="Poblacion Barangay 4">Poblacion Barangay 4</option>
+                        <option value="Poblacion Barangay 5">Poblacion Barangay 5</option>
+                        <option value="Poblacion Barangay 6">Poblacion Barangay 6</option>
+                        <option value="Poblacion Barangay 7">Poblacion Barangay 7</option>
+                        <option value="Sala">Sala</option>
+                        <option value="Sambat">Sambat</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Santol (Doña Jacoba Garcia)">Santol (Doña Jacoba Garcia)</option>
+                        <option value="Santor">Santor</option>
+                        <option value="Sulpoc">Sulpoc</option>
+                        <option value="Suplang">Suplang</option>
+                        <option value="Talaga">Talaga</option>
+                        <option value="Tinurik">Tinurik</option>
+                        <option value="Trapiche">Trapiche</option>
+                        <option value="Ulango">Ulango</option>
+                        <option value="Wawa">Wawa</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="password">Password:</label> <br>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="confirm_password">Confirm Password:</label> <br>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <div class="col-sm-12 col-xs-12">
+                    <h7 class="white-text-only">
+                        <input type="checkbox" required>
+                        <p class="terms">Creating your account and you accepting the <a href="terms_and_condition.html"
+                                target="_blank">
+                                <span>Terms and Conditions</span>
+                        </p>
+                    </h7>
+                </div>
+        </div>
+    </div>
+    <div class="sbmt">
+        <button type="submit" class="btn-sbmt" onclick="validateForm()">Create Account</button>
+    </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/icon.png" type="image/x-icon">
+    <title>Applicants List</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            overflow-y: hidden;
+            overflow-x: hidden;
+
+        }
+
+        .fa-bars:before,
+        .fa-navicon:before {
+            color: #0c3542;
+        }
+
+        .header {
+            height: 100px;
+            width: 100%;
+            background-color: #f5f3f3;
+        }
+
+        nav {
+            width: 20%;
+            background-color: #E9E9E4;
+            overflow: hidden;
+            height: 86.5vh;
+            border-top-right-radius: 25px;
+        }
+
+        .logo-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        img.img-fluid {
+            vertical-align: middle;
+            width: 120px;
+        }
+
+        ul {
+            padding-left: 60px;
+            padding-top: 30px;
+        }
+
+        li {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #0C3542;
+        }
+
+        a.seemore {
+            color: #6062ff;
+            text-decoration: underline;
+        }
+
+        .Admin-Profile-Pic {
+            border-radius: 50%;
+            padding: 0;
+            height: 60px;
+            width: 60px;
+        }
+
+        .A-Name {
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 25px;
+            color: #c52426;
+        }
+
+        .A-Name img {
+            margin-right: 10px;
+        }
+
+        .nav-link i {
+            margin-right: 15px;
+        }
+
+        .nav-item {
+            font-family: Arial;
+            font-size: 20px;
+        }
+
+        .nav-link.active {
+            background-color: #e60d0deb;
+            width: 200%;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            color: #EBA814;
+            background-color: #EBA814;
+            opacity: 1;
+            width: 200%;
+        }
+
+        .container {
+            background-color: #FFFFFF;
+            width: 100%;
+            padding: 0;
+            margin-top: 3.5vh;
+            display: flex;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #E9E9E4;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            border-top-right-radius: 25px;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #0C3542;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #EBA814;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 36px;
+            border: none;
+            background: none;
+        }
+
+        .sidebar .closebtn:hover {
+            color: #EBA814;
+        }
+
+        .content {
+            transition: margin-left .5s;
+            padding: 16px;
+            margin-left: 0;
+            width: 100%;
+            background: linear-gradient(145deg, rgb(230 13 13 / 92%) 5%, rgb(12 53 66 / 98%) 100%);
+            border-top-right-radius: 25px;
+            margin-top: 15px;
+        }
+
+        .openbtn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: #f5f3f3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .openbtn i {
+            margin-right: 10px;
+        }
+
+        .openbtn.active {
+            display: none;
+        }
+
+        .table-title {
+            color: #ffffff;
+            font-weight: bold;
+            padding-top: 30px;
+            padding-left: 50px;
+        }
+
+        h3 {
+            color: #ffffff;
+        }
+
+        h2 i {
+            margin-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 15px;
+            text-align: center;
+        }
+
+        td {
+            padding: 5px;
+            text-align: center;
+        }
+
+        h4 {
+            color: #FFFFFF;
+        }
+
+        .searchbar {
+            float: right;
+        }
+
+        .searchbar input {
+            border: none; 
+            padding: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            
+        }
+
+        .searchbar button {
+            border: none; 
+            padding: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-image">
+            <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png" class="img-fluid">
+        </div>
+        <button class="openbtn"><i class="fa-solid fa-bars"></i></button>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <button class="closebtn"><i class="fa-solid fa-times"></i></button>
+        <ul class="fa-ul nav flex-column">
+            <li>
+                <p class="A-Name"><img class="Admin-Profile-Pic"
+                        src="https://www.shutterstock.com/image-vector/user-profile-icon-vector-avatar-600nw-2247726673.jpg"
+                        alt="">
+                    Admin Name
+                </p>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="admin_scholarlist.html"><i
+                        class="fa-solid fa-graduation-cap"></i>Scholars</a></li>
+            <li class="nav-item"><a class="nav-link active" href="admin_applicantlist.html"><i
+                        class="fa-solid fa-envelope"></i>Applicants</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin_event.html"><i
+                        class="fa-solid fa-calendar"></i>Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin_profile.html"><i
+                        class="fa-solid fa-user"></i>Profile</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="admin_login.html"><i
+                        class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+        </ul>
+    </div>
+
+    <div id="main" class="content">
+        <div class="col-xs-12">
+
+            <!-- Searchbar -->
+            <form class="searchbar" action="" method="GET">
+                <input type="text" name="search" placeholder="Search" value="">
+                <button type="submit">Search</button>
+            </form>
+
+            <table>
+                <tr>
+                    <h2 class="table-title"><i class="fa-solid fa-user" style="color: #EBA814;"></i></i>Applicants</h2>
+                </tr>
+                <tr>
+                    <th>
+                        <h3>Name</h3>
+                    </th>
+                    <th>
+                        <h3>Email</h3>
+                    </th>
+                    <th>
+                        <h3>Level</h3>
+                    </th>
+                    <th>
+                        <h3>Age</h3>
+                    </th>
+                    <th>
+                        <h3>Address</h3>
+                    </th>
+                    <th>
+                        <h3>Requirements</h3>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h4>Coco Malipol</h4>
+                    </td>
+                    <td>
+                        <h4>coconmalipol@gmail.com</h4>
+                    </td>
+                    <td>
+                        <h4> Fourth Year College </h4>
+                    </td>
+                    <td>
+                        <h4> 23 </h4>
+                    </td>
+                    <td>
+                        <h4> Ulango, Tanauan City, Batangas </h4>
+                    </td>
+                    <td>
+                        <h4>Attachment - <a class="seemore" href="">See more</a></h4>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            $(".openbtn").click(function () {
+                var sidebarWidth = 300;
+                document.getElementById("mySidebar").style.width = sidebarWidth + "px";
+                document.getElementById("main").style.marginLeft = sidebarWidth + "px";
+                $(".content").css("width", "calc(100% - " + sidebarWidth + "px)");
+                $(this).addClass("active");
+            });
+
+            $(".closebtn").click(function () {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                $(".content").css("width", "100%");
+                $(".openbtn").removeClass("active");
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

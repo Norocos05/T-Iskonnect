@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/icon.png" type="image/x-icon">
+    <title>Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .fa-bars:before,
+        .fa-navicon:before {
+            color: #0c3542;
+        }
+
+        .header {
+            height: 100px;
+            width: 100%;
+            background-color: #f5f3f3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        nav {
+            width: 20%;
+            background-color: #E9E9E4;
+            overflow: hidden;
+            height: 86.5vh;
+            border-top-right-radius: 25px;
+        }
+
+        .logo-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .logo-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        img.img-fluid {
+            vertical-align: middle;
+            width: 150px;
+        }
+
+        ul {
+            padding-left: 60px;
+            padding-top: 30px;
+        }
+
+        li {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #0C3542;
+            cursor: pointer;
+        }
+
+        a.seemore {
+            color: #6062ff;
+            text-decoration: underline;
+        }
+
+        .Admin-Profile-Pic {
+            border-radius: 50%;
+            padding: 0;
+            height: 60px;
+            width: 60px;
+        }
+
+        .A-Name {
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 25px;
+            color: #c52426;
+        }
+
+        .A-Name img {
+            margin-right: 10px;
+        }
+
+        .nav-link i {
+            margin-right: 15px;
+        }
+
+        .nav-item {
+            font-family: Arial;
+            font-size: 20px;
+        }
+
+        .nav-link.active {
+            background-color: #e60d0deb;
+            width: 200%;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            color: #EBA814;
+            background-color: #EBA814;
+            opacity: 1;
+            width: 200%;
+        }
+
+        .container {
+            background-color: #FFFFFF;
+            width: 100%;
+            padding: 0;
+            margin-top: 3.5vh;
+            display: flex;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #E9E9E4;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            border-top-right-radius: 25px;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #0C3542;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #EBA814;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 36px;
+            border: none;
+            background: none;
+        }
+
+        .sidebar .closebtn:hover {
+            color: #EBA814;
+        }
+
+        .content {
+            transition: margin-left .5s;
+            padding: 20px;
+            width: 100%;
+            background: linear-gradient(145deg, rgb(230 13 13 / 92%) 5%, rgb(12 53 66 / 98%) 100%);
+            border-top-right-radius: 25px;
+            margin-top: 15px;
+        }
+
+        .openbtn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: #f5f3f3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            position: fixed;
+            border-radius: 5px;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .openbtn i {
+            margin-right: 10px;
+        }
+
+        .table-title {
+            color: #ffffff;
+            font-weight: bold;
+            padding-top: 30px;
+            padding-left: 50px;
+        }
+
+        h3 {
+            font-weight: bold;
+            color: #525252;
+        }
+
+        .yellow-text {
+            color: #EBA814;
+        }
+
+        h2 i {
+            margin-right: 15px;
+        }
+
+        th {
+            padding: 0px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td {
+            padding: 5px;
+            position: relative;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .line {
+            border-bottom: none;
+        }
+
+        h4 {
+            color: #FFFFFF;
+        }
+
+        table {
+            background-color: #E9E9E4;
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .sbmt {
+            padding-top: 9.2vh;
+            text-align: right;
+        }
+
+        .btn-sbmt {
+            color: #fff;
+            background-color: #EBA814;
+            border: #EBA814;
+            width: 15vw;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-top: -35px;
+            cursor: pointer;
+        }
+
+        button {
+            border: none;
+            background-color: #E9E9E4;
+        }
+
+        button i {
+            color: #0C3542;
+        }
+
+        .btn-primary {
+            background-color: #EBA814;
+            border: none;
+        }
+
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .modal-title {
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 3.5vh;
+        }
+
+        input[type=text] {
+            text-transform: capitalize;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border-style: 1px solid;
+            border: 1.5px solid #525252;
+            border-radius: 5px;
+            padding-left: 15px;
+            font-size: large;
+        }
+
+        .no-arrow::-webkit-outer-spin-button,
+        .no-arrow::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-image">
+            <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png" class="img-fluid">
+        </div>
+        <button class="openbtn"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    
+    <div id="mySidebar" class="sidebar">
+        <button class="closebtn"><i class="fa-solid fa-times"></i></button>
+        <ul class="fa-ul nav flex-column">
+            <li>
+                <p class="A-Name"><img class="Admin-Profile-Pic" src="https://www.shutterstock.com/image-vector/user-profile-icon-vector-avatar-600nw-2247726673.jpg" alt="">
+                    Admin Name
+                </p>
+            </li>
+            <li class="nav-item"><a class="nav-link " href="admin_scholarlist.html"><i
+                        class="fa-solid fa-graduation-cap"></i>Scholars</a></li>
+            <li class="nav-item"><a class="nav-link " href="admin_applicantlist.html"><i
+                        class="fa-solid fa-envelope"></i>Applicants</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin_event.html"><i
+                        class="fa-solid fa-calendar"></i>Events</a></li>
+            <li class="nav-item"><a class="nav-link active" href="admin_profile.html"><i
+                        class="fa-solid fa-user"></i>Profile</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="admin_login.html"><i
+                        class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+        </ul>
+    </div>
+
+
+
+    <div id="main" class="content">
+        <div class="col-xs-12">
+            <table>
+                <tr>
+                    <h2 class="table-title">Basic Information</h2>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5">
+                        <h3>First Name</h3>
+                    </th>
+                    <td class="col-xs-5">
+                        <h3>
+                            Admin First Name
+                        </h3>
+                    </td>
+                    <td class="col-xs-2">
+                        <button type="button" data-toggle="modal" data-target="#editFirstNameModal">
+                            <i class="fa-solid fa-pencil"></i></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5">
+                        <h3>Middle Name</h3>
+                    </th>
+                    <td class="col-xs-5">
+                        <h3>
+                            
+                        </h3>
+                    </td>
+                    <td class="col-xs-2">
+                        <button type="button" data-toggle="modal" data-target="#editMiddleNameModal">
+                            <i class="fa-solid fa-pencil"></i></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5">
+                        <h3>Last Name</h3>
+                    </th>
+                    <td class="col-xs-5">
+                        <h3>
+                            Admin Last Name
+                        </h3>
+                    </td>
+                    <td class="col-xs-2">
+                        <button type="button" data-toggle="modal" data-target="#editLastNameModal">
+                            <i class="fa-solid fa-pencil"></i></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5">
+                        <h3>Work ID</h3>
+                    </th>
+                    <td class="col-xs-5">
+                        <h3>
+                           Admin Work ID 
+                        </h3>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5 line">
+                        <h3>Password</h3>
+                    </th>
+                    <td class="col-xs-5"><a data-toggle="modal" data-target="#editPasswordModal">
+                            <h3 class="yellow-text">Change Password</h3>
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5">
+                        <h3>Profile Picture</h3>
+                    </th>
+                    <td class="col-xs-5">
+                        <a data-toggle="modal" data-target="#uploadPictureModal">
+                            <h3 class="yellow-text">Upload Picture</h3>
+                        </a>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <h2 class="table-title">Contact Information</h2>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5">
+                        <h3>Contact Number</h3>
+                    </th>
+                    <td class="col-xs-5">
+                        <h3>
+                           09099089660
+                        </h3>
+                    </td>
+                    <td class="col-xs-2">
+                        <button type="button" data-toggle="modal" data-target="#editContactNumberModal">
+                            <i class="fa-solid fa-pencil"></i></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="col-xs-5 line">
+                        <h3>Email</h3>
+                    </th>
+
+                    <td class="col-xs-5">
+                        <h3>
+                            Admin Email
+                        </h3>
+                    </td>
+
+                    <td class="col-xs-2 line">
+                        <button type="button" data-toggle="modal" data-target="#editEmailModal">
+                            <i class="fa-solid fa-pencil"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal - Edit First Name -->
+    <div class="modal fade" id="editFirstNameModal" tabindex="-1" role="dialog"
+        aria-labelledby="editFirstNameModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="editFirstNameModalLabel">Edit First Name</h5>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="text" id="fname" name="fname">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validateFirstName()">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Edit Middle Name -->
+    <div class="modal fade" id="editMiddleNameModal" tabindex="-1" role="dialog"
+        aria-labelledby="editMiddleNameModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="editMiddleNameModalLabel">Edit Middle Name</h5>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="text" id="mname" name="mname">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validateMiddleName()">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Edit Last Name -->
+    <div class="modal fade" id="editLastNameModal" tabindex="-1" role="dialog" aria-labelledby="editLastNameModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="editLastNameModalLabel">Edit Last Name</h5>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="text" id="lname" name="lname">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validateLastName()">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Edit Admin Password -->
+    <div class="modal fade" id="editPasswordModal" tabindex="-1" role="dialog" aria-labelledby="editPasswordModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="editPasswordModalLabel">Edit Password</h5>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="password" id="password" name="password">
+                        <input type="checkbox" onclick="showPassword()"> Show
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validatePassword()">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Upload Admin Picture-->
+    <div class="modal fade" id="uploadPictureModal" tabindex="-1" role="dialog"
+        aria-labelledby="uploadPictureModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="uploadPictureModalLabel">Upload Picture</h5>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="file" id="picture" name="picture">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Edit Admin Contact Number -->
+    <div class="modal fade" id="editContactNumberModal" tabindex="-1" role="dialog"
+        aria-labelledby="editContactNumberModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="editContactNumberModalLabel">Edit Contact Number</h5>
+                </div>
+                <form method="POST">
+                    <div class="modal-body">
+                        <input type="text" class="no-arrow" id="contact_number" name="contact_number">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validateContactNumber()">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Edit Admin Contact Email -->
+    <div class="modal fade" id="editEmailModal" tabindex="-1" role="dialog" aria-labelledby="editEmailLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="editEmailLabel">Edit Contact Email</h5>
+                </div>
+                <form method="POST">
+                    <div class="modal-body">
+                        <input type="email" id="uemail" name="uemail">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validateEmail()">Save
+                            changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            $(".openbtn").click(function () {
+                var sidebarWidth = 300;
+                document.getElementById("mySidebar").style.width = sidebarWidth + "px";
+                document.getElementById("main").style.marginLeft = sidebarWidth + "px";
+                $(".content").css("width", "calc(100% - " + sidebarWidth + "px)");
+                $(this).addClass("active");
+            });
+
+            $(".closebtn").click(function () {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                $(".content").css("width", "100%");
+                $(".openbtn").removeClass("active");
+            });
+        });
+
+        function showPassword() {
+            const passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "show";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+
+        function validateFirstName() {
+            const firstNameInput = document.getElementById("fname");
+            if (firstNameInput.value.length < 3) {
+                alert("First name must be at least 3 characters.");
+                return false; // Prevent form submission
+            }
+
+            return true;
+        }
+
+        function validateMiddleName() {
+            const middleNameInput = document.getElementById("mname");
+            if (middleNameInput.value.length < 1) {
+                alert("Last name must be at least 1 character.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateLastName() {
+            const lastNameInput = document.getElementById("lname");
+            if (lastNameInput.value.length < 3) {
+                alert("Last name must be at least 3 characters.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePassword() {
+            const passwordInput = document.getElementById("upassword");
+            if (passwordInput.value.length < 5) {
+                alert("Your password must be at least 5 characters.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePicture() {
+            const pictureInput = document.getElementById("picture");
+
+            // Check if a file is selected
+            if (pictureInput.files.length === 0 || !pictureInput.files[0].name) {
+                alert("Please select a picture.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateEmail() {
+            const emailInput = document.getElementById("email");
+            const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            if (!emailPattern.test(emailInput.value)) {
+                alert("Invalid email format.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateContactNumber() {
+            const contactNumberInput = document.getElementById("contact_number");
+            const contactNumberPattern = /(\+63|0)[1-9]\d{8,9}/;
+            if (!contactNumberPattern.test(contactNumberInput.value)) {
+                alert("Invalid contact number format.");
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>
